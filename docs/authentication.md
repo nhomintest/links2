@@ -51,3 +51,14 @@
   ```
 
 - Never link to `/sign-in` or `/sign-up` routes/pages for these flows.
+- Always pass `forceRedirectUrl="/dashboard"` on `SignInButton`/`SignUpButton`.
+  Without it, Clerk only closes the modal on success and relies on the
+  surrounding page to notice the new auth state — which the server-rendered
+  homepage redirect doesn't do until the next full navigation/refresh.
+  `forceRedirectUrl` makes Clerk navigate to `/dashboard` itself as soon as
+  auth completes:
+
+  ```tsx
+  <SignInButton mode="modal" forceRedirectUrl="/dashboard" />
+  <SignUpButton mode="modal" forceRedirectUrl="/dashboard" />
+  ```

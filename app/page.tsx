@@ -54,10 +54,10 @@ export default async function Home() {
           </p>
         </div>
         <div className="flex flex-col items-center gap-3 sm:flex-row">
-          <SignUpButton mode="modal">
+          <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg">Get started for free</Button>
           </SignUpButton>
-          <SignInButton mode="modal">
+          <SignInButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg" variant="outline">
               Sign in
             </Button>
@@ -101,7 +101,7 @@ export default async function Home() {
         <p className="max-w-md text-muted-foreground">
           Join and create your page in under a minute.
         </p>
-        <SignUpButton mode="modal">
+        <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
           <Button size="lg">Create your page</Button>
         </SignUpButton>
       </section>
