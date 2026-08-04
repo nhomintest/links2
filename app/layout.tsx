@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  Show,
+  UserButton,
+} from "@clerk/nextjs";
 import { shadcn } from "@clerk/themes";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -30,7 +36,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "dark", "antialiased", geistSans.variable, geistMono.variable, "font-sans")}
+      className={cn(
+        "h-full",
+        "dark",
+        "antialiased",
+        geistSans.variable,
+        geistMono.variable,
+        "font-sans",
+      )}
     >
       <body className="min-h-full flex flex-col">
         <ClerkProvider appearance={{ theme: shadcn }}>

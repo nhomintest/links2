@@ -12,8 +12,6 @@ repository. Read it fully before making changes. Detailed, topic-specific rules 
   present and expected to be replaced incrementally. Don't assume existing sample code (e.g.
   `app/page.tsx`) is final; feel free to replace it when implementing real features.
 
-
-
 ## General rules for agents
 
 1. **Don't over-engineer.** Only implement what's asked. Don't add abstractions, config, or

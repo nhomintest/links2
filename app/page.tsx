@@ -1,7 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { SignUpButton, SignInButton } from "@clerk/nextjs";
-import { Link, Zap, BarChart3, Globe } from "lucide-react";
+import { Link, Zap, Palette, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
@@ -18,10 +18,10 @@ const features = [
       "Create your page in seconds. No coding required — just add links and go live immediately.",
   },
   {
-    icon: BarChart3,
-    title: "Track your clicks",
+    icon: Palette,
+    title: "Make it yours",
     description:
-      "See which links get the most attention with built-in analytics so you can focus on what matters.",
+      "Customize your page to match your style and stand out with a personal touch.",
   },
   {
     icon: Globe,
@@ -40,12 +40,8 @@ export default async function Home() {
       {/* Hero */}
       <section className="flex flex-col items-center justify-center gap-8 px-6 py-32 text-center">
         <div className="flex flex-col items-center gap-4">
-          <span className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-            Free to get started
-          </span>
           <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
-            All your links,{" "}
-            <span className="text-primary">one place</span>
+            All your links, <span className="text-primary">one place</span>
           </h1>
           <p className="max-w-xl text-lg text-muted-foreground">
             links2 lets you create a single landing page for all the links you

@@ -2,31 +2,38 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { z } from "zod";
-import { createLink, deleteLink, updateLink, ShortCodeTakenError } from "@/data/links";
+import {
+  createLink,
+  deleteLink,
+  updateLink,
+  ShortCodeTakenError,
+} from "@/data/links";
 import type { Link } from "@/db/schema";
 
 const createLinkSchema = z.object({
   originalUrl: z.string().trim().url(),
   customSlug: z.preprocess(
-    (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+    (value) =>
+      typeof value === "string" && value.trim() === "" ? undefined : value,
     z
       .string()
       .trim()
       .max(32, "Slug must be 32 characters or fewer.")
       .regex(
         /^[a-zA-Z0-9_-]+$/,
-        "Only letters, numbers, hyphens, and underscores are allowed."
+        "Only letters, numbers, hyphens, and underscores are allowed.",
       )
-      .optional()
+      .optional(),
   ),
 });
 
 type CreateLinkInput = z.infer<typeof createLinkSchema>;
 
-type CreateLinkResult = { success: true; data: Link } | { success: false; error: string };
+type CreateLinkResult =
+  { success: true; data: Link } | { success: false; error: string };
 
 export async function createLinkAction(
-  input: CreateLinkInput
+  input: CreateLinkInput,
 ): Promise<CreateLinkResult> {
   const { userId } = await auth();
   if (!userId) {
@@ -42,7 +49,7 @@ export async function createLinkAction(
     const link = await createLink(
       userId,
       parsed.data.originalUrl,
-      parsed.data.customSlug
+      parsed.data.customSlug,
     );
     return { success: true, data: link };
   } catch (error) {
@@ -63,16 +70,17 @@ const updateLinkSchema = z.object({
     .max(32, "Slug must be 32 characters or fewer.")
     .regex(
       /^[a-zA-Z0-9_-]+$/,
-      "Only letters, numbers, hyphens, and underscores are allowed."
+      "Only letters, numbers, hyphens, and underscores are allowed.",
     ),
 });
 
 type UpdateLinkInput = z.infer<typeof updateLinkSchema>;
 
-type UpdateLinkResult = { success: true; data: Link } | { success: false; error: string };
+type UpdateLinkResult =
+  { success: true; data: Link } | { success: false; error: string };
 
 export async function updateLinkAction(
-  input: UpdateLinkInput
+  input: UpdateLinkInput,
 ): Promise<UpdateLinkResult> {
   const { userId } = await auth();
   if (!userId) {
@@ -89,7 +97,7 @@ export async function updateLinkAction(
       userId,
       parsed.data.linkId,
       parsed.data.originalUrl,
-      parsed.data.customSlug
+      parsed.data.customSlug,
     );
     if (!link) {
       return { success: false, error: "Link not found." };
@@ -112,7 +120,7 @@ type DeleteLinkInput = z.infer<typeof deleteLinkSchema>;
 type DeleteLinkResult = { success: true } | { success: false; error: string };
 
 export async function deleteLinkAction(
-  input: DeleteLinkInput
+  input: DeleteLinkInput,
 ): Promise<DeleteLinkResult> {
   const { userId } = await auth();
   if (!userId) {

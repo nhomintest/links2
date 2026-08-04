@@ -52,8 +52,8 @@ export function DeleteLinkDialog({ link }: { link: Link }) {
         <AlertDialogHeader>
           <AlertDialogTitle>Delete this link?</AlertDialogTitle>
           <AlertDialogDescription>
-            This will permanently delete the short link for{" "}
-            {link.originalUrl}. This action cannot be undone.
+            This will permanently delete the short link for {link.originalUrl}.
+            This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         {error && <p className="text-sm text-destructive">{error}</p>}

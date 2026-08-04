@@ -1,6 +1,7 @@
 ---
 description: Read this file to understand how to fetch data in the project.
 ---
+
 #Data Fetching Guidlines
 This document outlines the best practices and guidlines for fetching data in out Next.js application. Adhering the these quidlines will ensure consistency, performance, and maintainability across the codebase.
 

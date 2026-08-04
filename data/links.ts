@@ -42,7 +42,7 @@ function isUniqueViolation(error: unknown) {
 export async function createLink(
   userId: string,
   originalUrl: string,
-  customSlug?: string
+  customSlug?: string,
 ) {
   if (customSlug) {
     try {
@@ -65,7 +65,8 @@ export async function createLink(
         .returning();
       return link;
     } catch (error) {
-      if (!isUniqueViolation(error) || attempt === MAX_SHORT_CODE_ATTEMPTS) throw error;
+      if (!isUniqueViolation(error) || attempt === MAX_SHORT_CODE_ATTEMPTS)
+        throw error;
     }
   }
   throw new Error("Failed to generate a unique short code");
@@ -75,7 +76,7 @@ export async function updateLink(
   userId: string,
   linkId: number,
   originalUrl: string,
-  customSlug: string
+  customSlug: string,
 ) {
   try {
     const [link] = await db

@@ -1,6 +1,6 @@
 ---
 name: instructions_generator
-description: This agent generates highly specific agent instruction files 
+description: This agent generates highly specific agent instruction files
 
 argument-hint: The inputs this agent expects, e.g., "a task to implement" or "a question to answer".
 tools: [read, edit, search, web]
