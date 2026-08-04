@@ -2,21 +2,6 @@
 
 This file is the entry point for AI coding agents (Copilot, Claude, etc.) working in this
 repository. Read it fully before making changes. Detailed, topic-specific rules live in
-[docs/](docs/) — consult the relevant file(s) before touching that area of the code.
-
-> [!IMPORTANT]
-> It is **critically important** that you read the relevant individual instructions file(s)
-> in [docs/](docs/) below BEFORE generating any code. This is not optional — check the list
-> below for every doc whose area overlaps with the task, open and read it in full first, and
-> only then start writing code. If a task touches multiple areas (e.g. an authenticated page
-> that also uses UI components), read every applicable doc before generating any code.
-
-- [docs/authentication.md](docs/authentication.md) — Clerk auth rules: protected routes,
-  homepage redirect, and sign in/up modal behavior. Read BEFORE writing any code that touches
-  routing, middleware, or sign-in/sign-up behavior.
-- [docs/ui-components.md](docs/ui-components.md) — shadcn/ui usage rules: no custom
-  components, adding primitives via the CLI, and composing over forking. Read BEFORE writing
-  or editing any component in [components/](components/) or JSX/TSX that renders UI.
 
 ## Project overview
 
